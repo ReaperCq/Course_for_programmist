@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Свяжитесь с нами - CodeMaster Pro">
+    <title>Контакты | CodeMaster Pro</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-item:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-item.is-active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 6rem 1.5rem 4rem;
+            margin-top: 52px;
+        }
+        
+        .contact-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        .input:focus, .textarea:focus, .select select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.125em rgba(102, 126, 234, 0.25);
+        }
+        
+        .button.is-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .button.is-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 3rem 1.5rem 2rem;
+        }
+        
+        footer a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            padding: 5rem 1.5rem;
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                padding: 4rem 1.5rem 3rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                    <span class="has-text-weight-bold is-size-4 gradient-text" style="margin-left: 10px;">CodeMaster Pro</span>
+                </a>
+                
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="index.html">Главная</a>
+                    <a class="navbar-item" href="index.html#about">О курсе</a>
+                    <a class="navbar-item" href="index.html#features">Преимущества</a>
+                    <a class="navbar-item" href="index.html#pricing">Тарифы</a>
+                    <a class="navbar-item is-active" href="contacts.html">Контакты</a>
+                    <a class="navbar-item" href="faq.html">FAQ</a>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary" href="index.html#register">
+                                <strong>Начать обучение</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 has-text-white has-text-weight-bold">Свяжитесь с нами</h1>
+            <p class="subtitle is-4 has-text-white" style="margin-top: 1rem;">
+                Мы всегда рады ответить на ваши вопросы
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Cards -->
+    <section class="section" style="background: #f8f9ff; padding: 4rem 1.5rem;">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="contact-card has-text-centered">
+                        <div class="contact-icon" style="margin: 0 auto 1.5rem;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="title is-5">Телефон</h3>
+                        <p style="color: #555; line-height: 1.8;">
+                            <a href="tel:+74951234567" style="color: var(--primary-color); font-weight: 600;">
+                                +7 (495) 123-45-67
+                            </a><br>
+                            Пн-Пт: 9:00 - 21:00<br>
+                            Сб-Вс: 10:00 - 18:00
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="column is-4">
+                    <div class="contact-card has-text-centered">
+                        <div class="contact-icon" style="margin: 0 auto 1.5rem;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="title is-5">Email</h3>
+                        <p style="color: #555; line-height: 1.8;">
+                            <a href="/cdn-cgi/l/email-protection#157c7b737a55767a71707874666170673b65677a" style="color: var(--primary-color); font-weight: 600;">
+                                <span class="__cf_email__" data-cfemail="0c65626a634c6f636869616d7f78697e227c7e63">[email&#160;protected]</span>
+                            </a><br>
+                            <a href="/cdn-cgi/l/email-protection#d2a1a7a2a2bda0a692b1bdb6b7bfb3a1a6b7a0fca2a0bd" style="color: var(--primary-color); font-weight: 600;">
+                                <span class="__cf_email__" data-cfemail="88fbfdf8f8e7fafcc8ebe7ecede5e9fbfcedfaa6f8fae7">[email&#160;protected]</span>
+                            </a><br>
+                            Ответим в течение 24 часов
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="column is-4">
+                    <div class="contact-card has-text-centered">
+                        <div class="contact-icon" style="margin: 0 auto 1.5rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="title is-5">Офис</h3>
+                        <p style="color: #555; line-height: 1.8;">
+                            Москва, Россия<br>
+                            ул. Тверская, д. 1<br>
+                            БЦ "Технопарк", офис 404
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Feedback Form -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="box" style="border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                        <h2 class="title is-2 gradient-text has-text-centered" style="margin-bottom: 3rem;">
+                            Оставьте отзыв или задайте вопрос
+                        </h2>
+                        
+                        <div class="columns">
+                            <div class="column is-6">
+                                <form id="feedbackForm">
+                                    <div class="field">
+                                        <label class="label">Имя *</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="text" placeholder="Ваше имя" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-user"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <label class="label">Email *</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="email" placeholder="example@email.com" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <label class="label">Телефон</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="tel" placeholder="+7 (___) ___-__-__">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-phone"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <label class="label">Тема обращения *</label>
+                                        <div class="control">
+                                            <div class="select is-fullwidth">
+                                                <select required>
+                                                    <option value="" disabled selected>Выберите тему</option>
+                                                    <option>Вопрос о программе курса</option>
+                                                    <option>Вопрос об оплате</option>
+                                                    <option>Техническая поддержка</option>
+                                                    <option>Предложение по улучшению</option>
+                                                    <option>Благодарность</option>
+                                                    <option>Жалоба</option>
+                                                    <option>Другое</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <label class="label">Сообщение *</label>
+                                        <div class="control">
+                                            <textarea class="textarea" placeholder="Расскажите подробнее о вашем вопросе или оставьте отзыв..." rows="6" required></textarea>
+                                        </div>
+                                        <p class="help">Минимум 10 символов</p>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="checkbox">
+                                                <input type="checkbox" required>
+                                                Соглашаюсь с <a href="#" style="color: var(--primary-color);">политикой обработки персональных данных</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <div class="control">
+                                            <button class="button is-primary is-medium is-fullwidth" type="submit">
+                                                <span class="icon">
+                                                    <i class="fas fa-paper-plane"></i>
+                                                </span>
+                                                <span>Отправить сообщение</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="column is-6">
+                                <div class="content" style="padding: 2rem;">
+                                    <h3 class="title is-4">
+                                        <span class="icon-text">
+                                            <span class="icon has-text-primary">
+                                                <i class="fas fa-info-circle"></i>
+                                            </span>
+                                            <span>Информация</span>
+                                        </span>
+                                    </h3>
+                                    <p style="line-height: 1.8; color: #555;">
+                                        Мы ценим каждого студента и стремимся обеспечить лучший опыт обучения. 
+                                        Ваши вопросы и отзывы помогают нам становиться лучше.
+                                    </p>
+                                    
+                                    <div style="margin-top: 2rem;">
+                                        <h4 class="title is-6">Время ответа:</h4>
+                                        <ul style="list-style: none; padding: 0;">
+                                            <li style="padding: 0.5rem 0; color: #555;">
+                                                <span class="icon has-text-success">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                Email: в течение 24 часов
+                                            </li>
+                                            <li style="padding: 0.5rem 0; color: #555;">
+                                                <span class="icon has-text-success">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                Телефон: в рабочее время
+                                            </li>
+                                            <li style="padding: 0.5rem 0; color: #555;">
+                                                <span class="icon has-text-success">
+                                                    <i class="fas fa-check"></i>
+                                                </span>
+                                                Чат на сайте: онлайн 24/7
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="margin-top: 2rem;">
+                                        <h4 class="title is-6">Мы в социальных сетях:</h4>
+                                        <div class="buttons">
+                                            <a href="#" class="button is-light">
+                                                <span class="icon">
+                                                    <i class="fab fa-telegram"></i>
+                                                </span>
+                                                <span>Telegram</span>
+                                            </a>
+                                            <a href="#" class="button is-light">
+                                                <span class="icon">
+                                                    <i class="fab fa-vk"></i>
+                                                </span>
+                                                <span>VK</span>
+                                            </a>
+                                            <a href="#" class="button is-light">
+                                                <span class="icon">
+                                                    <i class="fab fa-youtube"></i>
+                                                </span>
+                                                <span>YouTube</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="section" style="background: #f8f9ff; padding-top: 0;">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-2 gradient-text">Как нас найти</h2>
+                <p class="subtitle is-5">Приходите к нам в офис на бесплатную консультацию</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.4266693629727!2d37.61493831592454!3d55.75582998055641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2z0KLQstC10YDRgdC60LDRjyDRg9C7LiwgMSwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyNTAwOQ!5e0!3m2!1sru!2s!4v1645000000000!5m2!1sru!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                        <span class="has-text-weight-bold is-size-4" style="margin-left: 10px;">CodeMaster Pro</span>
+                    </div>
+                    <p style="color: #ccc; line-height: 1.7;">
+                        Онлайн-платформа для изучения программирования 
+                        с нуля до уровня junior-разработчика.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-vk fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-youtube fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="column is-2">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Курс</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#about">О программе</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#features">Преимущества</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#pricing">Тарифы</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#testimonials">Отзывы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Поддержка</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="faq.html">FAQ</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contacts.html">Контакты</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Документация</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+                
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Контакты</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea7a0a8a18eada1aaaba3afbdbaabbce0bebca1">[email&#160;protected]</a></span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span>+7 (495) 123-45-67</span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                <span>Москва, Россия</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="background-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+            
+            <div class="has-text-centered" style="color: #888;">
+                <p>&copy; 2025 CodeMaster Pro. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Mobile menu toggle script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+            
+            // Form submission handler
+            const form = document.getElementById('feedbackForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

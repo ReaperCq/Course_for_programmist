@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Страница не найдена | CodeMaster Pro</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background */
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-code {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 2rem;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-50px) rotate(10deg);
+            }
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-code {
+            font-size: 10rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .button.is-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .button.is-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .button.is-light:hover {
+            background: #f5f5f5;
+            transform: translateY(-3px);
+        }
+
+        .quick-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .quick-link {
+            display: inline-block;
+            margin: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-icon {
+                font-size: 3rem;
+            }
+
+            .error-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="floating-code" style="top: 10%; left: 10%; animation-delay: 0s;">&lt;/&gt;</div>
+        <div class="floating-code" style="top: 60%; left: 80%; animation-delay: 3s;">{ }</div>
+        <div class="floating-code" style="top: 80%; left: 20%; animation-delay: 6s;">[ ]</div>
+        <div class="floating-code" style="top: 30%; left: 70%; animation-delay: 9s;">( )</div>
+        <div class="floating-code" style="top: 50%; left: 30%; animation-delay: 12s;">404</div>
+    </div>
+
+    <!-- Error Container -->
+    <div class="error-container">
+        <div class="error-icon">
+            <i class="fas fa-bug"></i>
+        </div>
+
+        <div class="error-code">404</div>
+
+        <h1 class="title is-2" style="color: #333; margin-bottom: 1rem;">
+            Упс! Страница не найдена
+        </h1>
+
+        <p class="subtitle is-5" style="color: #666; margin-bottom: 2rem; line-height: 1.6;">
+            Похоже, вы попали на страницу, которая не существует или была перемещена.
+            Это как попытка выполнить код с ошибкой — ничего не работает! 😅
+        </p>
+
+        <div class="box" style="background: #f8f9ff; border: none; margin-bottom: 2rem;">
+            <p style="color: #555; font-family: 'Courier New', monospace;">
+                <strong>Error:</strong> Page not found at this URL<br>
+                <strong>Status Code:</strong> 404<br>
+                <strong>Suggestion:</strong> Check the URL or navigate to homepage
+            </p>
+        </div>
+
+        <div class="buttons is-centered" style="margin-bottom: 1rem;">
+            <a href="index.html" class="button is-primary is-large">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span>На главную</span>
+            </a>
+            <a href="pages/contacts.html" class="button is-light is-large">
+                <span class="icon">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span>Связаться с нами</span>
+            </a>
+        </div>
+
+        <div class="quick-links">
+            <p style="color: #888; margin-bottom: 1rem;">Популярные разделы:</p>
+            <div>
+                <a href="index.html" class="quick-link">
+                    <i class="fas fa-arrow-right"></i> Главная
+                </a>
+                <a href="index.html#about" class="quick-link">
+                    <i class="fas fa-arrow-right"></i> О курсе
+                </a>
+                <a href="index.html#pricing" class="quick-link">
+                    <i class="fas fa-arrow-right"></i> Тарифы
+                </a>
+                <a href="pages/faq.html" class="quick-link">
+                    <i class="fas fa-arrow-right"></i> FAQ
+                </a>
+                <a href="pages/contacts.html" class="quick-link">
+                    <i class="fas fa-arrow-right"></i> Контакты
+                </a>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #f0f0f0;">
+            <p style="color: #999; font-size: 0.9rem;">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Подсказка:</strong> Если проблема повторяется, сообщите нам об этом
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Randomly position floating code elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const floatingElements = document.querySelectorAll('.floating-code');
+            floatingElements.forEach(el => {
+                const randomDelay = Math.random() * 5;
+                const randomDuration = 15 + Math.random() * 10;
+                el.style.animationDelay = `${randomDelay}s`;
+                el.style.animationDuration = `${randomDuration}s`;
+            });
+        });
+    </script>
+</body>
+
+</html>

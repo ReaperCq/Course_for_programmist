@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CodeMaster Pro - онлайн-курс по программированию для начинающих и опытных разработчиков">
+    <title>CodeMaster Pro | Онлайн-курс по программированию</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom gradient backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-item:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero section */
+        .hero.is-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .hero-body {
+            padding: 5rem 1.5rem;
+        }
+
+        /* Cards */
+        .card {
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        /* Icon boxes */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        /* Stats section */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 2rem;
+            height: 100%;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* Pricing cards */
+        .pricing-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.is-featured {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        footer a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Buttons */
+        .button.is-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .button.is-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section spacing */
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-body {
+                padding: 3rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                    <span class="has-text-weight-bold is-size-4 gradient-text" style="margin-left: 10px;">CodeMaster
+                        Pro</span>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active" href="index.html">Главная</a>
+                    <a class="navbar-item" href="#about">О курсе</a>
+                    <a class="navbar-item" href="#features">Преимущества</a>
+                    <a class="navbar-item" href="#pricing">Тарифы</a>
+                    <a class="navbar-item" href="contacts.html">Контакты</a>
+                    <a class="navbar-item" href="faq.html">FAQ</a>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary" href="#register">
+                                <strong>Начать обучение</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary is-medium" id="home" style="margin-top: 52px;">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-6">
+                        <h1 class="title is-1 has-text-white has-text-weight-bold">
+                            Станьте разработчиком за 6 месяцев
+                        </h1>
+                        <p class="subtitle is-4 has-text-white" style="margin-top: 1.5rem; line-height: 1.8;">
+                            Практический онлайн-курс по программированию с гарантией трудоустройства.
+                            От основ до реальных проектов в портфолио.
+                        </p>
+                        <div class="buttons" style="margin-top: 2rem;">
+                            <a href="#register" class="button is-large is-light">
+                                <span class="icon">
+                                    <i class="fas fa-rocket"></i>
+                                </span>
+                                <span>Начать бесплатно</span>
+                            </a>
+                            <a href="#about" class="button is-large is-outlined is-light">
+                                <span class="icon">
+                                    <i class="fas fa-play"></i>
+                                </span>
+                                <span>Смотреть видео</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6 has-text-centered">
+                        <img src="assets/images/hero-illustration.svg" alt="Программирование"
+                            style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: #f8f9ff; padding: 3rem 1.5rem;">
+        <div class="container">
+            <div class="columns is-multiline has-text-centered">
+                <div class="column is-3">
+                    <div class="stat-number">5000+</div>
+                    <p class="subtitle is-5">Выпускников</p>
+                </div>
+                <div class="column is-3">
+                    <div class="stat-number">92%</div>
+                    <p class="subtitle is-5">Трудоустроено</p>
+                </div>
+                <div class="column is-3">
+                    <div class="stat-number">300+</div>
+                    <p class="subtitle is-5">Часов практики</p>
+                </div>
+                <div class="column is-3">
+                    <div class="stat-number">4.9</div>
+                    <p class="subtitle is-5">Рейтинг курса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <img src="assets/images/about-illustration.svg" alt="Обучение программированию"
+                        style="max-width: 100%; height: auto;">
+                </div>
+                <div class="column is-6">
+                    <h2 class="title is-2 gradient-text">О курсе CodeMaster Pro</h2>
+                    <p class="subtitle is-5" style="margin-top: 1.5rem; line-height: 1.8; color: #555;">
+                        Наш курс разработан практикующими разработчиками из ведущих IT-компаний.
+                        Мы фокусируемся на реальных навыках, которые нужны работодателям прямо сейчас.
+                    </p>
+                    <div class="content" style="margin-top: 2rem;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0;">
+                                <span class="icon has-text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                <strong>Актуальный стек:</strong> JavaScript, React, Node.js, PostgreSQL
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <span class="icon has-text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                <strong>Практика:</strong> 15+ реальных проектов для портфолио
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <span class="icon has-text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                <strong>Поддержка:</strong> Менторы онлайн 24/7
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <span class="icon has-text-primary">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                                <strong>Гарантия:</strong> Трудоустройство или возврат денег
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features" style="background: #f8f9ff;">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2 gradient-text">Почему выбирают нас</h2>
+                <p class="subtitle is-5">Всё необходимое для успешного старта карьеры в IT</p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="title is-4">От нуля до джуниора</h3>
+                            <p>
+                                Начните с основ и дойдите до уровня junior-разработчика всего за 6 месяцев.
+                                Никакого опыта не требуется.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3 class="title is-4">Реальные проекты</h3>
+                            <p>
+                                Создайте портфолио из 15+ проектов: от простых лендингов до полноценных веб-приложений с
+                                backend.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="title is-4">Живое сообщество</h3>
+                            <p>
+                                Общайтесь с единомышленниками, работайте в команде и получайте поддержку 24/7 в нашем
+                                Discord.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="title is-4">Опытные менторы</h3>
+                            <p>
+                                Учитесь у разработчиков из Google, Яндекс, VK. Еженедельные code review и личные
+                                консультации.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="title is-4">Помощь в трудоустройстве</h3>
+                            <p>
+                                Подготовка резюме, mock-интервью, доступ к базе вакансий от партнеров. 92% выпускников
+                                устроились.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="card">
+                        <div class="card-content has-text-centered">
+                            <div class="icon-box">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="title is-4">Сертификат</h3>
+                            <p>
+                                Получите сертификат о прохождении курса, который ценится работодателями и добавит веса
+                                вашему резюме.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2 gradient-text">Выберите свой тариф</h2>
+                <p class="subtitle is-5">Гибкие условия оплаты для каждого студента</p>
+            </div>
+
+            <div class="columns is-centered" style="align-items: stretch;">
+                <div class="column is-4">
+                    <div class="pricing-card">
+                        <h3 class="title is-4 has-text-centered">Базовый</h3>
+                        <div class="has-text-centered" style="margin: 2rem 0;">
+                            <div class="price">₽39,900</div>
+                            <p class="subtitle is-6">или 6,650₽/мес на 6 мес</p>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Доступ к материалам курса
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Практические задания
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Поддержка в чате
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Сертификат о прохождении
+                            </li>
+                        </ul>
+                        <a href="#register" class="button is-fullwidth is-outlined is-primary is-medium">
+                            Выбрать тариф
+                        </a>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="pricing-card is-featured">
+                        <div class="has-text-centered">
+                            <span class="tag is-primary is-medium">Популярный</span>
+                        </div>
+                        <h3 class="title is-4 has-text-centered" style="margin-top: 1rem;">Стандарт</h3>
+                        <div class="has-text-centered" style="margin: 2rem 0;">
+                            <div class="price">₽59,900</div>
+                            <p class="subtitle is-6">или 9,983₽/мес на 6 мес</p>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Всё из тарифа Базовый
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Персональный ментор
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Code review проектов
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Карьерные консультации
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Доступ к вакансиям
+                            </li>
+                        </ul>
+                        <a href="#register" class="button is-fullwidth is-primary is-medium">
+                            Выбрать тариф
+                        </a>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="pricing-card">
+                        <h3 class="title is-4 has-text-centered">Премиум</h3>
+                        <div class="has-text-centered" style="margin: 2rem 0;">
+                            <div class="price">₽89,900</div>
+                            <p class="subtitle is-6">или 14,983₽/мес на 6 мес</p>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Всё из тарифа Стандарт
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Гарантия трудоустройства
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Индивидуальные занятия
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Подготовка к собеседованиям
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0;">
+                                <span class="icon has-text-success">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                Годовой доступ к материалам
+                            </li>
+                        </ul>
+                        <a href="#register" class="button is-fullwidth is-outlined is-primary is-medium">
+                            Выбрать тариф
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials" style="background: #f8f9ff;">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2 gradient-text">Отзывы наших студентов</h2>
+                <p class="subtitle is-5">Более 5000 выпускников уже изменили свою жизнь</p>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="testimonial-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="testimonial-avatar">АС</div>
+                            <div>
+                                <div class="has-text-weight-bold">Александр Сидоров</div>
+                                <div class="is-size-7" style="color: #888;">Frontend Developer @ Яндекс</div>
+                            </div>
+                        </div>
+                        <p style="line-height: 1.7; color: #555;">
+                            "Прошел курс за 5 месяцев и сразу получил оффер в Яндекс.
+                            Менторы реально помогают, а не просто отвечают на вопросы.
+                            Портфолио после курса — огонь!"
+                        </p>
+                        <div style="margin-top: 1rem; color: #FFD700;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="testimonial-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="testimonial-avatar">МК</div>
+                            <div>
+                                <div class="has-text-weight-bold">Мария Козлова</div>
+                                <div class="is-size-7" style="color: #888;">Fullstack Developer @ Авито</div>
+                            </div>
+                        </div>
+                        <p style="line-height: 1.7; color: #555;">
+                            "Я без опыта в программировании начала курс. Сначала было сложно,
+                            но поддержка менторов и сообщества помогла дойти до конца.
+                            Теперь работаю fullstack-разработчиком!"
+                        </p>
+                        <div style="margin-top: 1rem; color: #FFD700;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4">
+                    <div class="testimonial-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div class="testimonial-avatar">ДП</div>
+                            <div>
+                                <div class="has-text-weight-bold">Дмитрий Петров</div>
+                                <div class="is-size-7" style="color: #888;">Backend Developer @ Сбер</div>
+                            </div>
+                        </div>
+                        <p style="line-height: 1.7; color: #555;">
+                            "Курс дал именно те навыки, которые нужны на работе.
+                            Никакой воды — только практика. Особенно понравились
+                            проекты с реальными задачами из индустрии."
+                        </p>
+                        <div style="margin-top: 1rem; color: #FFD700;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section gradient-primary" id="register">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-8">
+                    <h2 class="title is-2 has-text-white">Готовы начать свой путь в IT?</h2>
+                    <p class="subtitle is-4 has-text-white" style="margin-top: 1rem;">
+                        Получите первые 3 урока бесплатно и оцените качество курса
+                    </p>
+                </div>
+                <div class="column is-4 has-text-centered">
+                    <a href="#" class="button is-light is-large">
+                        <span class="icon">
+                            <i class="fas fa-gift"></i>
+                        </span>
+                        <span>Получить доступ</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="has-text-centered" style="margin-bottom: 4rem;">
+                <h2 class="title is-2 gradient-text">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="box" style="margin-bottom: 1rem;">
+                        <h3 class="title is-5">Нужен ли опыт в программировании?</h3>
+                        <p style="color: #555;">
+                            Нет, курс рассчитан на новичков. Мы начинаем с самых основ и
+                            постепенно переходим к более сложным темам.
+                        </p>
+                    </div>
+
+                    <div class="box" style="margin-bottom: 1rem;">
+                        <h3 class="title is-5">Сколько времени нужно уделять учебе?</h3>
+                        <p style="color: #555;">
+                            Рекомендуем 10-15 часов в неделю. Можно учиться в своем темпе,
+                            но для завершения за 6 месяцев нужна регулярность.
+                        </p>
+                    </div>
+
+                    <div class="box" style="margin-bottom: 1rem;">
+                        <h3 class="title is-5">Что если курс мне не подойдет?</h3>
+                        <p style="color: #555;">
+                            У нас есть гарантия возврата денег в течение 14 дней с момента
+                            покупки. Без лишних вопросов.
+                        </p>
+                    </div>
+
+                    <div class="box">
+                        <h3 class="title is-5">Помогаете ли с трудоустройством?</h3>
+                        <p style="color: #555;">
+                            Да! На тарифах Стандарт и Премиум вы получаете доступ к базе вакансий,
+                            помощь с резюме и подготовку к собеседованиям. На Премиум — гарантия трудоустройства.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                        <span class="has-text-weight-bold is-size-4" style="margin-left: 10px;">CodeMaster Pro</span>
+                    </div>
+                    <p style="color: #ccc; line-height: 1.7;">
+                        Онлайн-платформа для изучения программирования
+                        с нуля до уровня junior-разработчика.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-vk fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-youtube fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="column is-2">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Курс</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#about">О программе</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#features">Преимущества</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#pricing">Тарифы</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#testimonials">Отзывы</a></li>
+                    </ul>
+                </div>
+
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Поддержка</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Помощь</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Документация</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">FAQ</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Контакты</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                        data-cfemail="4a23242c250a29252e2f272b393e2f38643a3825">[email&#160;protected]</a></span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span>+7 (495) 123-45-67</span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                <span>Москва, Россия</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="background-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+
+            <div class="has-text-centered" style="color: #888;">
+                <p>&copy; 2025 CodeMaster Pro. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

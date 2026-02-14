@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Часто задаваемые вопросы - CodeMaster Pro">
+    <title>FAQ | CodeMaster Pro</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-item:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-item.is-active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 6rem 1.5rem 4rem;
+            margin-top: 52px;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9ff;
+            color: var(--primary-color);
+        }
+        
+        .faq-question.active {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .button.is-primary {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .button.is-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 3rem 1.5rem 2rem;
+        }
+        
+        footer a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            padding: 5rem 1.5rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .page-header {
+                padding: 4rem 1.5rem 3rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .faq-question {
+                font-size: 1rem;
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .faq-answer-content {
+                padding: 0 1.5rem 1.25rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                    <span class="has-text-weight-bold is-size-4 gradient-text" style="margin-left: 10px;">CodeMaster Pro</span>
+                </a>
+                
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="index.html">Главная</a>
+                    <a class="navbar-item" href="index.html#about">О курсе</a>
+                    <a class="navbar-item" href="index.html#features">Преимущества</a>
+                    <a class="navbar-item" href="index.html#pricing">Тарифы</a>
+                    <a class="navbar-item" href="contacts.html">Контакты</a>
+                    <a class="navbar-item is-active" href="faq.html">FAQ</a>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary gradient-primary" href="index.html#register" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+                                <strong>Начать обучение</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 has-text-white has-text-weight-bold">Часто задаваемые вопросы</h1>
+            <p class="subtitle is-4 has-text-white" style="margin-top: 1rem;">
+                Ответы на самые популярные вопросы о нашем курсе
+            </p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section" style="background: #f8f9ff;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    
+                    <!-- Category: Getting Started -->
+                    <div style="margin-bottom: 3rem;">
+                        <span class="category-badge">
+                            <i class="fas fa-rocket"></i> Начало работы
+                        </span>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Нужен ли опыт в программировании для прохождения курса?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Нет, наш курс разработан специально для новичков. Мы начинаем с самых основ: что такое переменные, 
+                                    функции, как работает интернет. Постепенно переходим к более сложным темам. Единственное требование — 
+                                    умение пользоваться компьютером на базовом уровне и желание учиться.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Сколько времени нужно уделять учебе?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Рекомендуем заниматься 10-15 часов в неделю. Это примерно 1.5-2 часа в день. 
+                                    Курс построен так, что вы можете учиться в своем темпе, но для завершения за 6 месяцев 
+                                    нужна регулярность. Некоторые студенты проходят быстрее, уделяя больше времени, 
+                                    другие растягивают до 9-12 месяцев — это нормально.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Какое оборудование нужно для обучения?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Нужен компьютер или ноутбук (Windows, macOS или Linux) с минимум 4 ГБ оперативной памяти. 
+                                    Стабильное интернет-соединение для просмотра видеолекций и выполнения онлайн-практики. 
+                                    Все программное обеспечение, которое мы используем, бесплатное — мы покажем, как его установить.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category: Learning Process -->
+                    <div style="margin-bottom: 3rem;">
+                        <span class="category-badge">
+                            <i class="fas fa-graduation-cap"></i> Процесс обучения
+                        </span>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Как проходит обучение? Это только видео или есть практика?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Обучение строится по принципу 30% теории и 70% практики. Каждый модуль начинается с видеолекции, 
+                                    затем вы выполняете практические задания на нашей платформе. После этого создаете реальный проект, 
+                                    который проверяет ментор. В конце курса у вас будет портфолио из 15+ проектов.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Есть ли поддержка и обратная связь от преподавателей?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Да! На тарифах Стандарт и Премиум у вас будет персональный ментор, который проверяет ваш код, 
+                                    проводит code review и отвечает на вопросы. Также работает общий чат в Discord, где можно 
+                                    получить помощь от других студентов и преподавателей 24/7. На базовом тарифе доступна 
+                                    поддержка в чате без персонального ментора.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Какие технологии я изучу на курсе?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Вы освоите полный стек современного веб-разработчика: HTML, CSS, JavaScript (включая ES6+), 
+                                    React для фронтенда, Node.js и Express для бэкенда, PostgreSQL для работы с базами данных, 
+                                    Git для контроля версий. Также познакомитесь с REST API, аутентификацией, развертыванием приложений.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category: Payment -->
+                    <div style="margin-bottom: 3rem;">
+                        <span class="category-badge">
+                            <i class="fas fa-credit-card"></i> Оплата и тарифы
+                        </span>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Можно ли оплатить курс в рассрочку?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Да, мы предлагаем рассрочку на 6 месяцев без процентов для всех тарифов. 
+                                    Также доступна рассрочка до 12 месяцев через партнерские банки. Никаких скрытых комиссий — 
+                                    вы платите ровно ту сумму, которая указана на сайте, разбитую на равные части.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Что если курс мне не подойдет? Можно ли вернуть деньги?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    У нас есть гарантия возврата денег в течение 14 дней с момента покупки. Если вам не понравится 
+                                    формат, качество материалов или что-то еще — мы вернем деньги полностью, без лишних вопросов. 
+                                    Просто напишите в поддержку, и в течение 5 рабочих дней средства вернутся на вашу карту.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Чем отличаются тарифы? Какой выбрать?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <strong>Базовый:</strong> Доступ ко всем материалам, практическим заданиям и поддержка в общем чате. 
+                                    Подходит самостоятельным людям.<br><br>
+                                    <strong>Стандарт:</strong> Всё из Базового + персональный ментор, code review проектов, 
+                                    карьерные консультации, доступ к вакансиям. Самый популярный тариф.<br><br>
+                                    <strong>Премиум:</strong> Всё из Стандарт + гарантия трудоустройства, индивидуальные занятия, 
+                                    подготовка к собеседованиям, годовой доступ к материалам. Для тех, кто хочет максимум поддержки.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category: Career -->
+                    <div style="margin-bottom: 3rem;">
+                        <span class="category-badge">
+                            <i class="fas fa-briefcase"></i> Карьера и трудоустройство
+                        </span>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Помогаете ли вы с трудоустройством?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Да! На тарифах Стандарт и Премиум вы получаете доступ к нашей базе вакансий от компаний-партнеров, 
+                                    помощь в составлении резюме и LinkedIn-профиля, проведение mock-интервью (тренировочных собеседований). 
+                                    На тарифе Премиум — полная гарантия трудоустройства: мы помогаем до тех пор, пока вы не получите 
+                                    оффер, или возвращаем деньги.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Какая зарплата у junior-разработчика после курса?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    По статистике наших выпускников, начальная зарплата junior-разработчика в Москве составляет 
+                                    80,000-120,000 рублей, в регионах — 50,000-80,000 рублей. Через год работы многие наши студенты 
+                                    выходят на уровень middle с зарплатой 150,000-250,000 рублей. Конечно, многое зависит от 
+                                    компании, города и ваших усилий в обучении.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Выдается ли сертификат после окончания курса?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Да, после успешного завершения всех модулей и защиты итогового проекта вы получаете 
+                                    сертификат о прохождении курса. Он подтверждает ваши навыки и добавляет веса резюме. 
+                                    Многие наши партнеры-работодатели признают наш сертификат как показатель качественной подготовки.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Category: Technical -->
+                    <div style="margin-bottom: 3rem;">
+                        <span class="category-badge">
+                            <i class="fas fa-laptop-code"></i> Технические вопросы
+                        </span>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>На каком языке ведется обучение?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    Все материалы курса на русском языке: видеолекции, текстовые материалы, задания, поддержка. 
+                                    Однако в программировании часто встречаются англоязычные термины — мы их объясняем и помогаем 
+                                    освоить базовую техническую терминологию на английском, что пригодится в работе.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Как долго доступны материалы курса после окончания?</span>
+                                <div class="faq-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    На тарифах Базовый и Стандарт доступ к материалам сохраняется 6 месяцев после окончания курса. 
+                                    На тарифе Премиум — целый год. За это время вы можете пересматривать лекции, повторять 
+                                    материал и освежать знания. Если нужно продлить доступ, это можно сделать за небольшую плату.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="cta-box">
+                        <h2 class="title is-2 has-text-white">Не нашли ответ на свой вопрос?</h2>
+                        <p class="subtitle is-5 has-text-white" style="margin-top: 1rem; margin-bottom: 2rem;">
+                            Свяжитесь с нами, и мы с радостью поможем!
+                        </p>
+                        <div class="buttons is-centered">
+                            <a href="contacts.html" class="button is-primary is-large">
+                                <span class="icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span>Написать нам</span>
+                            </a>
+                            <a href="tel:+74951234567" class="button is-light is-large is-outlined">
+                                <span class="icon">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span>Позвонить</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <img src="assets/icons/logo.svg" alt="CodeMaster Pro" style="height: 2.5rem;">
+                        <span class="has-text-weight-bold is-size-4" style="margin-left: 10px;">CodeMaster Pro</span>
+                    </div>
+                    <p style="color: #ccc; line-height: 1.7;">
+                        Онлайн-платформа для изучения программирования 
+                        с нуля до уровня junior-разработчика.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-vk fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large" style="margin-right: 0.5rem;">
+                            <i class="fab fa-youtube fa-2x"></i>
+                        </a>
+                        <a href="#" class="icon is-large">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="column is-2">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Курс</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#about">О программе</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#features">Преимущества</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#pricing">Тарифы</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#testimonials">Отзывы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Поддержка</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="faq.html">FAQ</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contacts.html">Контакты</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Документация</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#">Блог</a></li>
+                    </ul>
+                </div>
+                
+                <div class="column is-3">
+                    <h4 class="has-text-weight-bold is-size-5" style="margin-bottom: 1rem;">Контакты</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422b2c242d02212d26272f23313627306c32302d">[email&#160;protected]</a></span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <span>+7 (495) 123-45-67</span>
+                            </span>
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span>
+                                <span>Москва, Россия</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="background-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+            
+            <div class="has-text-centered" style="color: #888;">
+                <p>&copy; 2025 CodeMaster Pro. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        });
+        
+        // FAQ toggle function
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = element.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-question.active').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                    item.nextElementSibling.style.maxHeight = null;
+                }
+            });
+            
+            // Toggle current FAQ
+            if (isActive) {
+                element.classList.remove('active');
+                answer.style.maxHeight = null;
+            } else {
+                element.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+        
+        // Open first FAQ by default
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstFAQ = document.querySelector('.faq-question');
+            if (firstFAQ) {
+                toggleFAQ(firstFAQ);
+            }
+        });
+    </script>
+</body>
+</html>
